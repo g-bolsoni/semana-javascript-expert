@@ -47,10 +47,23 @@ export default class View{
             this.#fileUploadWrapper.classList.add('hide')
         }
     }
+
     configureOnFileChange(fn){
         this.#fileUpload.addEventListener('change', this.onChange(fn))
     }
+
     updateElapsedTime(text){
         this.#elapsed.innerText = text
+    }
+
+    downloadBlobAsFile(buffers, fileName){
+        const blob = new Blob(buffers, {type:'video/webm'})
+        const blobUrl = URL.createObjectURL(blob)
+        const a = document.createElement('a');
+        a.href = blobUrl;
+        a.download = fileName
+        a.click()
+
+        URL.revokeObjectURL(blobUrl)
     }
 }

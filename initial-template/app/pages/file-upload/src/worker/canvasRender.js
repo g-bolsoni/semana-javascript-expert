@@ -11,7 +11,7 @@ export default class CanvasRenderer {
             frame,
             0,
             0,
-            displayWidth, 
+            displayWidth,
             displayHeight
         )
         frame.close();
@@ -20,7 +20,7 @@ export default class CanvasRenderer {
     static getRenderer(canvas) {
         _canvas = canvas
         _ctx = canvas.getContext('2d')
-        
+
         const renderer = this
         let pendingFrame = null
 
